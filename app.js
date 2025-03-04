@@ -3,7 +3,11 @@ let listaAmigos = [];
 let nomeSorteado
 
 function adicionarAmigo() {
-  nome = document.getElementById('amigo').value;
+  nome = document.getElementById('amigo').value.trim();
+  if (nome === '' || !isNaN(nome)) {
+    alert('Por favor, insira um nome válido.');
+    return;
+  }
   listaAmigos.push(nome);
   document.getElementById('amigo').value = '';
   mostrarListaAmisgos();
